@@ -1,0 +1,44 @@
+/*
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+#grid {
+    display: flex;
+    border: solid;
+    flex-direction: column;
+    height: 100%;
+}
+
+.square {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+*/
+#grid {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    height: 100vh;
+}
+
+.column:hover{
+  background-color: red;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex-basis: 100%;
+    flex: 1;
+    padding: 1em;
+}
