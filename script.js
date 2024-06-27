@@ -1,18 +1,31 @@
-const grid = document.querySelector("#grid");
+const defaultGridSize = 16;
 
-
-const gridSize = 16;
-
-for (let i = 0; i < gridSize; i++) {
-
-    const row = document.createElement("div");
-    row.classList.add("row");
+function setGrid (gridSize) {
+    const grid = document.querySelector("#grid");
     
-    for (let j = 0; j < (gridSize); j++) {
-        const column = document.createElement("div");
-        column.classList.add("column");
-        column.classList.add("square");
-        row.appendChild(column);
+    for (let i = 0; i < gridSize; i++) {
+
+        const row = document.createElement("div");
+        row.classList.add("row");
+        
+        for (let j = 0; j < (gridSize); j++) {
+            const column = document.createElement("div");
+            column.classList.add("column");
+            column.classList.add("square");
+
+            column.addEventListener('mouseover', () => {
+                column.classList.add("highlight");
+            });
+            row.appendChild(column);
+
+        }
+        grid.appendChild(row);
     }
-    grid.appendChild(row);
-}
+};
+
+const submitButton = document.querySelector('#submit-button')
+submitButton.addEventListener('click', () => {
+    setGrid(gridSize);
+});
+
+setGrid(defaultGridSize);
