@@ -1,8 +1,8 @@
 const defaultGridSize = 16;
 
+const grid = document.querySelector("#grid");
+
 function setGrid (gridSize) {
-    const grid = document.querySelector("#grid");
-    
     for (let i = 0; i < gridSize; i++) {
 
         const row = document.createElement("div");
@@ -23,8 +23,16 @@ function setGrid (gridSize) {
     }
 };
 
+function resetGrid () {
+    while (grid.hasChildNodes()) {
+        grid.removeChild(grid.lastChild);
+    }
+}
+
 const submitButton = document.querySelector('#submit-button')
 submitButton.addEventListener('click', () => {
+    let gridSize = document.getElementById('grid-size').value
+    resetGrid()
     setGrid(gridSize);
 });
 
