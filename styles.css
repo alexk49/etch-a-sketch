@@ -23,7 +23,16 @@
 }
 
 .square {
-  flex-basis: 100%;
-  flex: 1;
+  flex: 1 0 auto;
   padding: 1em;
+  border: 1px solid #ccc;
+}
+
+.square:before {
+  /* needed to make divs actual squares
+  /* https://stackoverflow.com/questions/29307971/css-grid-of-squares-with-flexbox */
+  /* :before pseudo-element to insert a 0 width element with a padding-top of 100%. That 100% is 100% of the width, meaning this element with no content will be equally as tall as its container */
+  content: "";
+  padding-top: 100%;
+  display: block;
 }
