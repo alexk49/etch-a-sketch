@@ -5,29 +5,27 @@ body, html {
     padding: 0;
 }
 
-
-#grid {
-    display: flex;
-    border: solid;
-    flex-direction: column;
-    height: 100%;
-}
-
-.square {
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-}
-
 */
+
+#title {
+   text-align: center;
+   padding: 4px;
+}
+
+#set-grid {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 #grid {
     display: flex;
     flex-direction: column;
     border: solid;
-    height: 100vh;
+    width: 960px;
+    margin: 0 auto;
 }
 
-.column:hover{
+.highlight {
   background-color: red;
 }
 
