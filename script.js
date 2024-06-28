@@ -9,7 +9,7 @@ function setGrid (gridSize) {
 
       square.addEventListener('mouseover', () => {
         if (square.style.backgroundColor) {
-          darkenRgbValues(square)
+          darkenDiv(square)
         } else {
           const rgbValues = generateRandomColour()
           changeBackgroundColor(square, rgbValues)
@@ -21,20 +21,20 @@ function setGrid (gridSize) {
   }
 };
 
-function darkenRgbValues (div) {
-  const rgbValues = div.style.backgroundColor
-  const newValues = darkenColour(rgbValues)
+function darkenDiv (div) {
+  const rgbString = div.style.backgroundColor
+  const newValues = darkenRgbValues(rgbString)
   div.style.backgroundColor = newValues
 }
 
-function darkenColour (rgbString) {
+function darkenRgbValues (rgbString) {
   // rgb string will always be given as written in css:
   // rgb(num, num, num)
-  values = rgbString.substring(4, rgbString.length - 1).split(',')
+  colours = rgbString.substring(4, rgbString.length - 1).split(',')
 
-  const red = reduceNumberBy10Percent(values[0])
-  const green = reduceNumberBy10Percent(values[1])
-  const blue = reduceNumberBy10Percent(values[2])
+  const red = reduceNumberBy10Percent(colours[0])
+  const green = reduceNumberBy10Percent(colours[1])
+  const blue = reduceNumberBy10Percent(colours[2])
   return 'rgb(' + red + ', ' + green + ', ' + blue + ')'
 }
 
@@ -75,7 +75,10 @@ const grid = document.querySelector('#grid')
 
 const submitButton = document.querySelector('#submit-button')
 submitButton.addEventListener('click', () => {
-  const gridSize = document.getElementById('grid-size').value
+  let gridSize = document.getElementById('grid-size').value
+  while (gridSize < 0 || gridSize > 100) {
+    gridSize = Number(prompt("That's not going to work. Enter a number between 0 and 100", 16))
+  }
   resetGrid()
   setGrid(gridSize)
 })
