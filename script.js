@@ -8,11 +8,17 @@ function setGrid (gridSize) {
       square.classList.add('square')
 
       square.addEventListener('mouseover', () => {
-        if (square.style.backgroundColor) {
-          darkenDiv(square)
+        if (hoverOption.checked === false) {
+          ;
         } else {
-          const rgbValues = generateRandomColour()
-          changeBackgroundColor(square, rgbValues)
+          updateSquare(square)
+        }
+      })
+      square.addEventListener('click', () => {
+        if (clickOption.checked === false) {
+          ;
+        } else {
+          updateSquare(square)
         }
       })
       row.appendChild(square)
@@ -20,11 +26,19 @@ function setGrid (gridSize) {
     grid.appendChild(row)
   }
 };
+function updateSquare (square) {
+  if (square.style.backgroundColor) {
+    darkenDiv(square)
+  } else {
+    const rgbValues = generateRandomColour()
+    changeBackgroundColor(square, rgbValues)
+  }
+};
 
-function darkenDiv (div) {
-  const rgbString = div.style.backgroundColor
+function darkenSquare (square) {
+  const rgbString = square.style.backgroundColor
   const newValues = darkenRgbValues(rgbString)
-  div.style.backgroundColor = newValues
+  square.style.backgroundColor = newValues
 }
 
 function darkenRgbValues (rgbString) {
@@ -91,6 +105,21 @@ submitContainerSizeButton.addEventListener('click', () => {
   }
   const grid = document.querySelector('#grid')
   grid.style.width = containerSize + 'px'
+})
+
+const clickOption = document.querySelector('#click-option')
+const hoverOption = document.querySelector('#hover-option')
+
+clickOption.addEventListener('click', (event) => {
+  if (event.target.checked) {
+    hoverOption.checked = false
+  }
+})
+
+hoverOption.addEventListener('click', (event) => {
+  if (event.target.checked) {
+    clickOption.checked = false
+  }
 })
 
 setGrid(defaultGridSize)

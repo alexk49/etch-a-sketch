@@ -8,19 +8,36 @@
   </head>
   <body>
     <h2 id="title">Etch-a-sketch</h2>
-    <div id="set-container">
-      <li>Set Etch-a-Sketch size:</li>
-      <input
-        id="container-size"
-        type="number"
-        placeholder="Enter etch a sketch size: 720"
-      />
-      <input id="submit-container-size" type="submit" value="Submit" />
-    </div>
-    <div id="set-grid">
-      <li>Set grid size:</li>
-      <input id="grid-size" type="number" placeholder="Enter grid size" />
-      <input id="submit-grid-size-button" type="submit" value="Submit" />
+    <div id="options">
+      <div id="set-container">
+        <li>Set Etch-a-Sketch size:</li>
+        <input
+          id="container-size"
+          type="number"
+          placeholder="Enter etch a sketch size: 720"
+        />
+        <input id="submit-container-size" type="submit" value="Submit" />
+      </div>
+      <div id="set-grid">
+        <li>Set grid size:</li>
+        <input id="grid-size" type="number" placeholder="Enter grid size" />
+        <input id="submit-grid-size-button" type="submit" value="Submit" />
+      </div>
+      <div id="mouse-hover-option">
+        <label for="hover" class="mouse-options"
+          >Colour on hover
+          <input
+            id="hover-option"
+            class="mouse-option"
+            type="checkbox"
+            checked
+          />
+        </label>
+        <label for="click" class="mouse-options"
+          >Colour on click
+          <input id="click-option" class="mouse-options" type="checkbox" />
+        </label>
+      </div>
     </div>
     <div id="grid"></div>
   </body>

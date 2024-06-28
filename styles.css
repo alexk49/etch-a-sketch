@@ -3,10 +3,15 @@
   padding: 4px;
 }
 
+#options {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#mouse-hover-option,
 #set-grid,
 #set-container {
   margin-bottom: 20px;
-  text-align: center;
 }
 
 #grid {
