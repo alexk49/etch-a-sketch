@@ -73,14 +73,24 @@ function generateRandomColour () {
 const defaultGridSize = 16
 const grid = document.querySelector('#grid')
 
-const submitButton = document.querySelector('#submit-button')
-submitButton.addEventListener('click', () => {
+const submitGridSizeButton = document.querySelector('#submit-grid-size-button')
+submitGridSizeButton.addEventListener('click', () => {
   let gridSize = document.getElementById('grid-size').value
   while (gridSize < 0 || gridSize > 100) {
     gridSize = Number(prompt("That's not going to work. Enter a number between 0 and 100", 16))
   }
   resetGrid()
   setGrid(gridSize)
+})
+
+const submitContainerSizeButton = document.querySelector('#submit-container-size')
+submitContainerSizeButton.addEventListener('click', () => {
+  let containerSize = document.getElementById('container-size').value
+  while (containerSize < 2 || containerSize > 1000) {
+    containerSize = Number(prompt("That's not going to work. Enter a number between 2 and 1000", 600))
+  }
+  const grid = document.querySelector('#grid')
+  grid.style.width = containerSize + 'px'
 })
 
 setGrid(defaultGridSize)

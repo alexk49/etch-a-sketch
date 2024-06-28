@@ -1,19 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Etch-a-Sketch</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
     <h2 id="title">Etch-a-sketch</h2>
+    <div id="set-container">
+      <li>Set Etch-a-Sketch size:</li>
+      <input
+        id="container-size"
+        type="number"
+        placeholder="Enter etch a sketch size: 720"
+      />
+      <input id="submit-container-size" type="submit" value="Submit" />
+    </div>
     <div id="set-grid">
-    <input id="grid-size" type="number" placeholder="Enter grid size">
-    <input id="submit-button" type="submit" value="Submit">
+      <li>Set grid size:</li>
+      <input id="grid-size" type="number" placeholder="Enter grid size" />
+      <input id="submit-grid-size-button" type="submit" value="Submit" />
     </div>
-    <div id="grid">
-    </div>
-</body>
-<script src="script.js"></script>
+    <div id="grid"></div>
+  </body>
+  <script src="script.js"></script>
 </html>
