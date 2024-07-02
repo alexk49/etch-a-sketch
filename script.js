@@ -10,6 +10,8 @@ function setGrid (gridSize) {
       square.addEventListener('mouseover', () => {
         if (hoverOption.checked === false) {
           ;
+        } else if (rubberOption.checked === true) {
+          resetSquare(square)
         } else {
           updateSquare(square)
         }
@@ -17,6 +19,8 @@ function setGrid (gridSize) {
       square.addEventListener('click', () => {
         if (clickOption.checked === false) {
           ;
+        } else if (rubberOption.checked === true) {
+          resetSquare(square)
         } else {
           updateSquare(square)
         }
@@ -27,7 +31,15 @@ function setGrid (gridSize) {
   }
 };
 
+function resetSquare (square) {
+  // when rubber is active
+  // click/hover sets square to white
+  square.style.backgroundColor = ''
+}
+
 function updateSquare (square) {
+  // assign random colour to square
+  // or darken color assigned
   if (square.style.backgroundColor) {
     darkenSquare(square)
   } else {
@@ -112,6 +124,7 @@ submitContainerSizeButton.addEventListener('click', () => {
 
 const clickOption = document.querySelector('#click-option')
 const hoverOption = document.querySelector('#hover-option')
+const rubberOption = document.querySelector('#rubber-option')
 
 clickOption.addEventListener('click', (event) => {
   if (event.target.checked) {

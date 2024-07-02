@@ -26,18 +26,16 @@
 }
 
 .mouse-option {
+  padding: 4px;
+}
+
+#square-size-container,
+#grid-size-container {
   padding: 8px;
 }
 
 #grid-options {
   margin-right: 20px;
-}
-
-#grid-size-container {
-  padding: 8px;
-}
-
-#mouse-options {
 }
 
 #grid {
