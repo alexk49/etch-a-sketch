@@ -26,9 +26,10 @@ function setGrid (gridSize) {
     grid.appendChild(row)
   }
 };
+
 function updateSquare (square) {
   if (square.style.backgroundColor) {
-    darkenDiv(square)
+    darkenSquare(square)
   } else {
     const rgbValues = generateRandomColour()
     changeBackgroundColor(square, rgbValues)
@@ -44,7 +45,7 @@ function darkenSquare (square) {
 function darkenRgbValues (rgbString) {
   // rgb string will always be given as written in css:
   // rgb(num, num, num)
-  colours = rgbString.substring(4, rgbString.length - 1).split(',')
+  const colours = rgbString.substring(4, rgbString.length - 1).split(',')
 
   const red = reduceNumberBy10Percent(colours[0])
   const green = reduceNumberBy10Percent(colours[1])
@@ -89,7 +90,7 @@ const grid = document.querySelector('#grid')
 
 const submitGridSizeButton = document.querySelector('#submit-grid-size-button')
 submitGridSizeButton.addEventListener('click', () => {
-  let gridSize = document.getElementById('grid-size').value
+  let gridSize = document.getElementById('square-size').value
   while (gridSize < 0 || gridSize > 100) {
     gridSize = Number(prompt("That's not going to work. Enter a number between 0 and 100", 16))
   }
@@ -105,6 +106,8 @@ submitContainerSizeButton.addEventListener('click', () => {
   }
   const grid = document.querySelector('#grid')
   grid.style.width = containerSize + 'px'
+  const options = document.querySelector('#options')
+  options.style.width = parseInt(containerSize) + 200 + 'px'
 })
 
 const clickOption = document.querySelector('#click-option')
